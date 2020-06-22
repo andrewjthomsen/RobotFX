@@ -9,10 +9,11 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
+        Robot.initialize();
         Parent root = FXMLLoader.load(getClass().getResource("robot.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setTitle("Robo Movers Delivery Service");
+        primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
 

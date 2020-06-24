@@ -12,21 +12,80 @@
         <RowConstraints/>
     </rowConstraints>
     <children>
-        <VBox prefHeight="400.0" prefWidth="600.0">
+        <VBox prefHeight="800.0" prefWidth="600.0">
             <children>
-                <HBox prefHeight="100.0" prefWidth="200.0"/>
-                <Button mnemonicParsing="false" onAction="#pressPickUp" prefHeight="25.0" prefWidth="100.0"
-                        text="Pick up" translateX="200.0"/>
-                <Button mnemonicParsing="false" onAction="#pressDropOff" prefHeight="25.0" prefWidth="100.0"
-                        text="Drop off" translateX="310.0" translateY="-25.0"/>
-                <Button mnemonicParsing="false" onAction="#pressMoveUp" prefHeight="25.0" prefWidth="125.0"
-                        text="Move Up" translateX="250.0"/>
-                <Button mnemonicParsing="false" onAction="#pressMoveLeft" prefHeight="25.0" prefWidth="125.0"
-                        text="Move Left" translateX="150.0" translateY="15.0"/>
-                <Button mnemonicParsing="false" onAction="#pressMoveDown" prefHeight="25.0" prefWidth="125.0"
-                        text="Move Down" translateX="250.0" translateY="25.0"/>
-                <Button mnemonicParsing="false" onAction="#pressMoveRight" prefHeight="25.0" prefWidth="125.0"
-                        text="Move Right" translateX="350.0" translateY="-35.0"/>
+                <HBox prefHeight="600.0" prefWidth="600.0">
+                    <children>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                        </GridPane>
+                    </children>
+                </HBox>
+                <Button style="-fx-background-color: #32A852;" mnemonicParsing="false" onAction="#pressPickUp"
+                        prefHeight="25.0" prefWidth="100.0" text="Pick Up" translateX="200.0" translateY="15.0"/>
+                <Button style="-fx-background-color: #BF0A2E;" mnemonicParsing="false" onAction="#pressDropOff"
+                        prefHeight="25.0" prefWidth="100.0" text="Drop Off" translateX="310.0" translateY="-10.0"/>
+                <Button style="-fx-background-color: #8F9490;" mnemonicParsing="false" onAction="#pressMoveUp"
+                        prefHeight="25.0" prefWidth="125.0" text="Move Up" translateX="250.0"/>
+                <Button style="-fx-background-color: #8F9490;" mnemonicParsing="false" onAction="#pressMoveLeft"
+                        prefHeight="25.0" prefWidth="125.0" text="Move Left" translateX="150.0" translateY="15.0"/>
+                <Button style="-fx-background-color: #8F9490;" mnemonicParsing="false" onAction="#pressMoveDown"
+                        prefHeight="25.0" prefWidth="125.0" text="Move Down" translateX="250.0" translateY="25.0"/>
+                <Button style="-fx-background-color: #8F9490;" mnemonicParsing="false" onAction="#pressMoveRight"
+                        prefHeight="25.0" prefWidth="125.0" text="Move Right" translateX="350.0" translateY="-35.0"/>
             </children>
         </VBox>
     </children>

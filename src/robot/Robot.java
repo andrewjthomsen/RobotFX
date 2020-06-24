@@ -4,17 +4,15 @@ import java.util.Arrays;
 
 public class Robot {
     // 3 private data members: x variable, y variable, and payload variable
-
-    private static int x;
-    private static int y;
+    private static int robotX, robotY, eggX, eggY, fishX, fishY;
     private static char payload;
     // Declaring grid class variable
     private static final int XSIZE = 25;
     private static final int YSIZE = 25;
     private static final char[][] grid = new char[XSIZE][YSIZE];
     // Packages
-    private static final char package1 = 'A';
-    private static final char package2 = 'B';
+    private static final char egg = 'E';
+    private static final char fish = 'F';
 
     // constructor for Robot class to house public content
     // No parameters needed for default constructor
@@ -22,54 +20,58 @@ public class Robot {
     }
 
     public static void initialize() {
-        x = 0;
-        y = 0;
+        robotX = 0;
+        robotY = 0;
+        eggX = 4;
+        eggY = 4;
+        fishX = 7;
+        fishY = 7;
         payload = ' ';
         for (char[] arr : grid) {// enhanced for loop
             Arrays.fill(arr, ' ');
         }
         // variable assignment for packages
-        grid[9][9] = package1;
-        grid[2][2] = package2;
+        grid[4][4] = egg;
+        grid[7][7] = fish;
     }
 
 
     // setter and getter methods
-    public static int getX() {
-        return x;
+    public static int getRobotX() {
+        return robotX;
     }
 
-    public static int getY() {
-        return y;
+    public static int getRobotY() {
+        return robotY;
     }
 
-    public char getPayload() {
-        return payload;
+    public static int getEggX() {
+        return eggX;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public static int getEggY() {
+        return eggY;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public static int getFishX() {
+        return fishX;
     }
 
-    public void setPayload(char payload) {
-        this.payload = payload;
+    public static int getFishY() {
+        return fishY;
     }
 
     // function that prints out location of robot and load status
     public static void print() {
         // Ternary conditional used to print the payload or empty if nothing in it.
-        System.out.println("Location: (" + x + "," + y + ") " +
+        System.out.println("Location: (" + robotX + "," + robotY + ") " +
                 "Load: " + (payload != ' ' ? payload : "Empty"));
     }
 
-    // Function for picking up load
+    // Method for picking up load
     public static boolean pickup(int lx, int ly) {
         // Examines current location of robot and if at location of pickup
-        if (x != lx || y != ly) {
+        if (robotX != lx || robotY != ly) {
             System.out.println("Robot not at location: (" + lx + "," + ly + ")");
             return false;
         }
@@ -80,17 +82,29 @@ public class Robot {
         }
         // If payload is empty then pickup load
         if (payload != ' ') {
+            System.out.println("Robot already has a load!");
             return false;
         }
+        // Set payload to load on grid and remove load value from grid.
         payload = grid[lx][ly];
         grid[lx][ly] = ' ';
+        // Prevents package from displaying grid if package has been picked up.
+        // Setting variable to sentinel value to prevent display after pickup.
+        if (payload == 'E') {
+            eggX = -1;
+            eggY = -1;
+        } else {
+            fishX = -1;
+            fishY = -1;
+        }
+        System.out.println("Pickup of load was successful.");
         return true;
     }
 
     /////////////////////////// CHECK ROBOT.JAVA IN PART A OF ASSIGNMENT////////////////////////////////////////////////////////////////////
     public static boolean dropOff(int lx, int ly) {
         // Return false if robot not at drop off location
-        if (x != lx || y != ly) {
+        if (robotX != lx || robotY != ly) {
             System.out.println("Robot not at location: (" + lx + "," + ly + ")");
             return false;
         }
@@ -99,71 +113,62 @@ public class Robot {
             System.out.println("Robot has no payload to drop off!");
             return false;
         }
+        // Setting grid coordinates to payload and remove from payload.
         grid[lx][ly] = payload;
+        if (payload == 'E') {
+            eggX = lx;
+            eggY = ly;
+        } else {
+            fishX = lx;
+            fishY = ly;
+        }
         payload = ' ';
+        System.out.println("Successful drop off of payload.");
         return true;
     }
 
-    public static void moveRight() {
+    public static boolean moveRight() {
         // Checks if the grid boundary has been reached
-        if (x == XSIZE - 1) {
+        if (robotX == XSIZE - 1) {
             System.out.println("Right boundary reached.");
-        } else {
-            x++;
-        }
-    }
-
-    public static void moveLeft() {
-        // Checks if the grid boundary has been reached
-        if (x == 0) {
-            System.out.println("Left boundary reached.");
-        } else {
-            x--;
-        }
-    }
-
-    public static void moveUp() {
-        // Checks if the grid boundary has been reached
-        if (y == 0) {
-            System.out.println("Top boundary reached.");
-        } else {
-            y--;
-        }
-    }
-
-    public static void moveDown() {
-        // Checks if the grid boundary has been reached
-        if (y == YSIZE - 1) {
-            System.out.println("Bottom boundary reached.");
-        } else {
-            y++;
-        }
-    }
-
-    // Place payloads at locations on map
-    public static boolean placePayLoad(int lx, int ly, char payload) {
-        // check for valid boundaries
-        if (lx < 0 || lx > XSIZE - 1 || ly < 0 || ly > YSIZE - 1) {
             return false;
         } else {
-            grid[lx][ly] = payload;
+            robotX++;
+            return true;
         }
-        return true;
     }
 
-    // Need to resolve this nonmember business
-    public static void print2D() {
-        System.out.println("-----------------------------------------------------------------------------------------------------");
-        for (int i = 0; i < XSIZE; i++) {
-            System.out.print("|");
-            for (int j = 0; j < YSIZE; j++) {
-                System.out.print(" " + grid[i][j] + " |");
-            }
-            // deleted grid parameter because has access to grid and no methods have grid as params
-            System.out.println();
-            System.out.println("-----------------------------------------------------------------------------------------------------");
+    public static boolean moveLeft() {
+        // Checks if the grid boundary has been reached
+        if (robotX == 0) {
+            System.out.println("Left boundary reached.");
+            return false;
+        } else {
+            robotX--;
+            return true;
+        }
+    }
 
+    public static boolean moveUp() {
+        // Checks if the grid boundary has been reached
+        if (robotY == 0) {
+            System.out.println("Top boundary reached.");
+            return false;
+        } else {
+            robotY--;
+            return true;
+        }
+    }
+
+    public static boolean moveDown() {
+        // Checks if the grid boundary has been reached
+        if (robotY == YSIZE - 1) {
+            System.out.println("Bottom boundary reached.");
+            return false;
+        } else {
+            robotY++;
+            return true;
         }
     }
 }
-// TODO FIND PNG FOR ROBOT, PNG FOR PACKAGES A AND B. TRY TO MAKE IMAGES A PERFECT SQUARE. IF POSSIBLE
+

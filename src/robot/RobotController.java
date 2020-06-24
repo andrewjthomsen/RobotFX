@@ -5,12 +5,12 @@ import javafx.event.ActionEvent;
 // File responsible for setting behavior for buttons when pressed
 public class RobotController {
     public void pressPickUp(ActionEvent event) {
-        Robot.pickup(Robot.getX(), Robot.getY());
+        Robot.pickup(Robot.getRobotX(), Robot.getRobotY());
         Robot.print();
     }
 
     public void pressDropOff(ActionEvent event) {
-        Robot.dropOff(Robot.getX(), Robot.getY());
+        Robot.dropOff(Robot.getRobotX(), Robot.getRobotY());
         Robot.print();
     }
 
